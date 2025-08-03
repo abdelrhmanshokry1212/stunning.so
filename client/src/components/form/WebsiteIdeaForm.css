@@ -1,0 +1,404 @@
+.form-container {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  width: 100%;
+  max-width: 600px;
+  padding: 0 20px;
+}
+
+.idea-form {
+  display: flex;
+  gap: 12px;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  padding: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  animation: formSlideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes formSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.idea-input {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  border: none;
+  outline: none;
+  color: #ffffff;
+  font-size: 16px;
+  padding: 12px 20px;
+  border-radius: 40px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  transition: all 0.3s ease;
+}
+
+.idea-input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+  font-style: italic;
+}
+
+.idea-input:focus {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(25px);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
+}
+
+.idea-input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.submit-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 40px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+  transition: all 0.2s ease;
+}
+
+.submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Results Container */
+.results-container {
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  max-height: 400px;
+  overflow-y: auto;
+  animation: resultsSlideIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Hide scrollbar completely */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+/* Hide scrollbar for WebKit browsers */
+.results-container::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes resultsSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.results-header h3 {
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.reset-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  transition: all 0.2s ease;
+}
+
+.reset-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.5);
+  background: linear-gradient(135deg, #7289da 0%, #8a5fb8 100%);
+}
+
+.sections-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.section-item {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 16px;
+  transition: all 0.3s ease;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.section-item:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
+  border-color: rgba(102, 126, 234, 0.3);
+}
+
+.section-item h4 {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 8px 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.section-item p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.error-message {
+  background: rgba(220, 53, 69, 0.2);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(220, 53, 69, 0.3);
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin-top: 12px;
+  color: #ff6b6b;
+  font-size: 14px;
+  text-align: center;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Responsive design */
+@media (max-width: 640px) {
+  .form-container {
+    bottom: 20px;
+    padding: 0 16px;
+  }
+  
+  .idea-form {
+    flex-direction: column;
+    border-radius: 25px;
+    padding: 12px;
+  }
+  
+  .idea-input {
+    border-radius: 20px;
+    text-align: center;
+  }
+  
+  .submit-btn {
+    border-radius: 20px;
+    padding: 14px 20px;
+  }
+
+  .results-container {
+    border-radius: 16px;
+    padding: 20px;
+    max-height: 350px;
+  }
+
+  .results-header {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .results-header h3 {
+    font-size: 1.3rem;
+    text-align: center;
+  }
+
+  .reset-btn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 16px;
+  }
+} 
+
+ 
+
+/* Modern Custom Scrollbar - More Specific */
+.results-container .sections-list::-webkit-scrollbar {
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 10px !important;
+}
+
+.results-container .sections-list::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border-radius: 10px !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  margin: 2px !important;
+}
+
+.results-container .sections-list::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #667eea 0%, #764ba2 100%) !important;
+  border-radius: 10px !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  backdrop-filter: blur(5px) !important;
+  -webkit-backdrop-filter: blur(5px) !important;
+  min-height: 40px !important;
+}
+
+.results-container .sections-list::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #7c8ff0 0%, #8a5bb8 100%) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.results-container .sections-list::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(180deg, #5a6fd8 0%, #6a4190 100%) !important;
+}
+
+.results-container .sections-list::-webkit-scrollbar-corner {
+  background: transparent !important;
+  border-radius: 10px !important;
+}
+
+/* Remove scrollbar arrows */
+.results-container .sections-list::-webkit-scrollbar-button {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* For Firefox */
+.results-container .sections-list {
+  scrollbar-width: thin !important;
+  scrollbar-color: #667eea rgba(255, 255, 255, 0.05) !important;
+}
+
+/* Stored sections scrollbar - More Specific */
+.stored-sections .stored-sections-list::-webkit-scrollbar {
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 10px !important;
+}
+
+.stored-sections .stored-sections-list::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border-radius: 10px !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  margin: 2px !important;
+}
+
+.stored-sections .stored-sections-list::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #667eea 0%, #764ba2 100%) !important;
+  border-radius: 10px !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  backdrop-filter: blur(5px) !important;
+  -webkit-backdrop-filter: blur(5px) !important;
+  min-height: 40px !important;
+}
+
+.stored-sections .stored-sections-list::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #7c8ff0 0%, #8a5bb8 100%) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.stored-sections .stored-sections-list::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(180deg, #5a6fd8 0%, #6a4190 100%) !important;
+}
+
+.stored-sections .stored-sections-list::-webkit-scrollbar-corner {
+  background: transparent !important;
+  border-radius: 10px !important;
+}
+
+/* Remove scrollbar arrows */
+.stored-sections .stored-sections-list::-webkit-scrollbar-button {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.stored-sections .stored-sections-list {
+  scrollbar-width: thin !important;
+  scrollbar-color: #667eea rgba(255, 255, 255, 0.05) !important;
+} 
+
+/* Global scrollbar override for the form component */
+.form-container *::-webkit-scrollbar {
+  width: 8px !important;
+  height: 8px !important;
+}
+
+.form-container *::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border-radius: 10px !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  margin: 2px !important;
+}
+
+.form-container *::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #667eea 0%, #764ba2 100%) !important;
+  border-radius: 10px !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  backdrop-filter: blur(5px) !important;
+  -webkit-backdrop-filter: blur(5px) !important;
+  min-height: 40px !important;
+}
+
+.form-container *::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #7c8ff0 0%, #8a5bb8 100%) !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.form-container *::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(180deg, #5a6fd8 0%, #6a4190 100%) !important;
+}
+
+.form-container *::-webkit-scrollbar-corner {
+  background: transparent !important;
+}
+
+/* Remove scrollbar arrows */
+.form-container *::-webkit-scrollbar-button {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.form-container * {
+  scrollbar-width: thin !important;
+  scrollbar-color: #667eea rgba(255, 255, 255, 0.05) !important;
+} 

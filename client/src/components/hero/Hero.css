@@ -1,0 +1,72 @@
+.hero-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  width: 100%;
+  max-width: 800px;
+  padding: 0 20px;
+  pointer-events: none;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.main-slogan {
+  color: #ffffff;
+  font-size: 3.5rem;
+  font-weight: 800;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: -1px;
+  line-height: 1.1;
+  text-align: center;
+  margin: 0;
+}
+
+.sub-slogan {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.25rem;
+  font-weight: 400;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: -0.2px;
+  line-height: 1.4;
+  text-align: center;
+  margin: 0;
+  max-width: 600px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .hero-container {
+    padding: 0 16px;
+  }
+  
+  .hero-content {
+    gap: 20px;
+  }
+  
+  .main-slogan {
+    font-size: 2.5rem;
+    letter-spacing: -0.5px;
+  }
+  
+  .sub-slogan {
+    font-size: 1.1rem;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-slogan {
+    font-size: 2rem;
+  }
+  
+  .sub-slogan {
+    font-size: 1rem;
+  }
+} 

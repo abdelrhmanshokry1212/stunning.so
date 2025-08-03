@@ -1,0 +1,19 @@
+.darkveil-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  animation: backgroundEntrance 0.8s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+@keyframes backgroundEntrance {
+  from {
+    opacity: 0;
+    filter: blur(5px) saturate(0.8);
+    transform: scale(1.05);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0) saturate(1);
+    transform: scale(1);
+  }
+} 
